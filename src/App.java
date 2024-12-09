@@ -1,6 +1,7 @@
 
 
 
+import Controller.MenuController;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 import Materia.Stacks.Stack;
@@ -9,10 +10,11 @@ import Models.Pantalla;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        runStack();
-        runStackGeneric();
-        runQueue();
-        runQueueGeneric();
+        runContactMannager();
+        //runStack();
+        //runStackGeneric();
+        //runQueue();
+        //runQueueGeneric();
 
     }
 
@@ -100,4 +102,10 @@ public class App {
         System.out.println("Contenido de la cola genérica después de desencolar:");
         colaGen.printQueue();
     }
+
+    private static void runContactMannager() {
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
+    }
+
 }
