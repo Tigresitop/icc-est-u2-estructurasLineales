@@ -1,7 +1,8 @@
-
-
+import java.util.Scanner;
 
 import Controller.MenuController;
+import Ejercicio_01_sing.SignValidator;
+import Ejercicio_02_sorting.StackSorter;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 import Materia.Stacks.Stack;
@@ -10,7 +11,9 @@ import Models.Pantalla;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        runContactMannager();
+        runSignValidator();
+        runStackSorter();
+        //runContactMannager();
         //runStack();
         //runStackGeneric();
         //runQueue();
@@ -107,5 +110,39 @@ public class App {
         MenuController menuController = new MenuController();
         menuController.showMenu();
     }
+
+    public static void runSignValidator() {
+        SignValidator validator = new SignValidator();
+    
+        String input1 = "([]){}";
+        String input2 = "({)}";
+        String input3 = "[{()}]";
+        
+        System.out.println("Input: " + input1 + " -> " + validator.isValid(input1));
+        System.out.println("Input: " + input2 + " -> " + validator.isValid(input2));
+        System.out.println("Input: " + input3 + " -> " + validator.isValid(input3));
+    }
+    
+
+
+    public static void runStackSorter() {
+        StackSorter sorter = new StackSorter();
+        StackGeneric<Integer> stack = new StackGeneric<>();
+        
+        stack.push(3);
+        stack.push(1);
+        stack.push(4);
+        stack.push(2);
+        
+        System.out.println("Original Stack:");
+        stack.printStack();
+        
+        StackGeneric<Integer> sortedStack = sorter.sort(stack);
+        
+        System.out.println("Sorted Stack:");
+        sortedStack.printStack();
+    }
+    
+    
 
 }
